@@ -6,8 +6,12 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float mainThrust=100f;
     [SerializeField] float rotationThrust = 100f;
+    [SerializeField] AudioClip rocketAudio;
+
     Rigidbody rb;
     AudioSource audio;
+
+    bool isAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +35,7 @@ public class Movement : MonoBehaviour
 
             if(!audio.isPlaying)
             {
-                audio.Play(); //if only tap space key, audio source will play
+                audio.PlayOneShot(rocketAudio); //if only tap space key, audio source will play
             }
 
 
